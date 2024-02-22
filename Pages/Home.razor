@@ -1,0 +1,24 @@
+﻿@page "/"
+
+<PageTitle>Countdown</PageTitle>
+
+<p>Days until @targetDate.ToShortDateString():@difference.Days days, @difference.Hours hours, @difference.Minutes minutes, @difference.Seconds seconds</p>
+
+<button class="btn btn-primary" @onclick="CalculateDifference">Update</button>
+
+@code{
+    private DateTime targetDate = new DateTime(2027, 5, 29, 0, 0, 0);
+    private DateTime currentDate = DateTime.Now;
+    private TimeSpan difference;
+
+        protected override void OnInitialized()
+        {
+            CalculateDifference();
+        }
+
+        private void CalculateDifference()
+        {
+            currentDate = DateTime.Now;
+            difference = targetDate - currentDate;
+        }
+}

@@ -2,9 +2,14 @@
 
 <PageTitle>Countdown</PageTitle>
 
-<p>Days until @targetDate.ToShortDateString():@difference.Days days, @difference.Hours hours, @difference.Minutes minutes, @difference.Seconds seconds</p>
+<p class="text-black font-bold">Time until @string.Format("{0:MMMM d, yyyy}", @targetDate)
+    <p>@difference.Days days, @difference.Hours hours, @difference.Minutes minutes, @difference.Seconds seconds</p>
+</p>
 
-<button class="btn btn-primary" @onclick="CalculateDifference">Update</button>
+<button class="bg-purple-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" @onclick="CalculateDifference">
+    Update
+</button>
+
 
 @code{
     private DateTime targetDate = new DateTime(2027, 5, 29, 0, 0, 0);
